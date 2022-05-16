@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PassPRNTTester</string>
+    <string name="btn_print">Print</string>
+</resources>
