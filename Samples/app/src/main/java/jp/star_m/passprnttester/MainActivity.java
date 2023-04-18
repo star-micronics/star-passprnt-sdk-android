@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String m_soundVolume      = null;
     String m_callBack         = null;
     String m_blackmark        = null;
+    String m_gap              = null;
     String m_cuttype          = null;
     String m_popup            = null;
 
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         m_soundVolume      = (m_soundVolume      == null) ? "none"        : m_soundVolume;
         m_callBack         = (m_callBack         == null) ? "startest://" : m_callBack;
         m_blackmark        = (m_blackmark        == null) ? "none"        : m_blackmark;
+        m_gap              = (m_gap              == null) ? "none"        : m_gap;
         m_cuttype          = (m_cuttype          == null) ? "none"        : m_cuttype;
         m_popup            = (m_popup            == null) ? "none"        : m_popup;
         try {
@@ -236,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case 3:     //Width
                         // Configured for printing area
-                        final String[] widthIndexList = {"none", "2", "2w1", "2w2", "2w3", "2w4", "3", "3w", "3w2", "4"};
+                        final String[] widthIndexList = {"none", "1", "2", "2w1", "2w2", "2w3", "2w4", "2w5", "3", "3w", "3w2", "4"};
 
                         for (int i = 0; i < widthIndexList.length; i++) {
                             if (widthIndexList[i].equalsIgnoreCase(m_width)) {
@@ -637,7 +639,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .setNegativeButton("Cancel", null)
                                 .show();
                         break;
-                    case 17:     //CutType
+                    case 17:     // Gap
+                        final String[] gapIndexList = {"none", "disable", "enable", "enableAndDetectAtPowerOn"};
+
+                        for (int i = 0; i < gapIndexList.length; i++) {
+                            if (gapIndexList[i].equalsIgnoreCase(m_gap)) {
+                                selectedIndex = i;
+                                break;
+                            }
+                        }
+
+                        new AlertDialog.Builder(view.getContext())
+                                .setTitle("Gap")
+                                .setSingleChoiceItems(gapIndexList, selectedIndex, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        selectedIndex = which;
+                                    }
+                                })
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        m_gap = gapIndexList[selectedIndex];
+                                        refreshListInfo();
+                                    }
+                                })
+                                .setNegativeButton("Cancel", null)
+                                .show();
+                        break;
+                    case 18:     //CutType
                         final String[] cutTypeIndexList = {"none", "partial", "full", "tearbar", "nocut"};
 
                         for (int i =0 ;i < cutTypeIndexList.length; i++) {
@@ -665,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .setNegativeButton("Cancel", null)
                                 .show();
                         break;
-                    case 18:     //Popup
+                    case 19:     //Popup
                         final String[] popupIndexList = {"none", "disable", "enable"};
 
                         for (int i = 0; i < popupIndexList.length; i++) {
@@ -693,7 +723,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .setNegativeButton("Cancel", null)
                                 .show();
                         break;
-                    case 19:     //HTML Receipt Design
+                    case 20:     //HTML Receipt Design
                         for (int i = 0; i < fileList.length; i++) {
                             if (fileList[i].equalsIgnoreCase(m_htmlReceiptData)) {
                                 selectedIndex = i;
@@ -719,7 +749,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .setNegativeButton("Cancel", null)
                                 .show();
                         break;
-                    case 20:     //PDF Receipt Design
+                    case 21:     //PDF Receipt Design
                         for (int i = 0; i < pdfFileList.length; i++) {
                             if (pdfFileList[i].equalsIgnoreCase(m_pdfReceiptData)) {
                                 selectedIndex = i;
@@ -745,7 +775,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 .setNegativeButton("Cancel", null)
                                 .show();
                         break;
-                    case 21:     //URL Design
+                    case 22:     //URL Design
                         final String[] urlIndexList = {"none",
                                                        "https://www.star-m.jp/products/s_print/sdk/passprnt/sample/resource/receipt_sample.html",
                                                        "https://www.star-m.jp/products/s_print/sdk/passprnt/sample/resource/receipt_sample.pdf"};
@@ -873,6 +903,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 builder.appendQueryParameter("blackmark", "");
             } else {
                 builder.appendQueryParameter("blackmark", m_blackmark);
+            }
+        }
+        if (!m_gap.equalsIgnoreCase("none")) {
+            if (m_gap.equalsIgnoreCase("blank")) {
+                builder.appendQueryParameter("gap", "");
+            } else {
+                builder.appendQueryParameter("gap", m_gap);
             }
         }
         if (!m_cuttype.equalsIgnoreCase("none")) {
@@ -1036,35 +1073,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         map7.put("sub", m_blackmark);
         listViewItems.add(map7);
 
-        //cuttype
+        // gap
         Map<String, String> map8 = new HashMap<>();
-        map8.put("main", "Cut Type(cut=)");
-        map8.put("sub", m_cuttype);
+        map8.put("main", "Gap(gap=)");
+        map8.put("sub", m_gap);
         listViewItems.add(map8);
 
-        //popup
+        //cuttype
         Map<String, String> map9 = new HashMap<>();
-        map9.put("main", "Popup(popup=)");
-        map9.put("sub", m_popup);
+        map9.put("main", "Cut Type(cut=)");
+        map9.put("sub", m_cuttype);
         listViewItems.add(map9);
 
-        //html Receipt data
+        //popup
         Map<String, String> map10 = new HashMap<>();
-        map10.put("main", "Receipt(html=)");
-        map10.put("sub", m_htmlReceiptData);
+        map10.put("main", "Popup(popup=)");
+        map10.put("sub", m_popup);
         listViewItems.add(map10);
 
-        //pdf Receipt data
+        //html Receipt data
         Map<String, String> map11 = new HashMap<>();
-        map11.put("main", "Receipt(pdf=)");
-        map11.put("sub", m_pdfReceiptData);
+        map11.put("main", "Receipt(html=)");
+        map11.put("sub", m_htmlReceiptData);
         listViewItems.add(map11);
 
-        //url
+        //pdf Receipt data
         Map<String, String> map12 = new HashMap<>();
-        map12.put("main", "Receipt(url=)");
-        map12.put("sub", m_url);
+        map12.put("main", "Receipt(pdf=)");
+        map12.put("sub", m_pdfReceiptData);
         listViewItems.add(map12);
+
+        //url
+        Map<String, String> map13 = new HashMap<>();
+        map13.put("main", "Receipt(url=)");
+        map13.put("sub", m_url);
+        listViewItems.add(map13);
 
         adapter.notifyDataSetChanged();
     }
