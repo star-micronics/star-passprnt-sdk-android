@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case 3:     //Width
                         // Configured for printing area
-                        final String[] widthIndexList = {"none", "1", "2", "2w1", "2w2", "2w3", "2w4", "2w5", "3", "3w", "3w2", "4"};
+                        final String[] widthIndexList = {"none", "1", "2", "2w1", "2w2", "2w3", "2w4", "2w5", "2w6", "2w7", "3", "3w", "3w2", "4"};
 
                         for (int i = 0; i < widthIndexList.length; i++) {
                             if (widthIndexList[i].equalsIgnoreCase(m_width)) {

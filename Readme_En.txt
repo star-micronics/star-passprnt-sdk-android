@@ -1,5 +1,5 @@
 ************************************************************
-      Star PassPRNT Android SDK Ver 2.4.0
+      Star PassPRNT Android SDK Ver 2.5.0
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
@@ -37,7 +37,7 @@
  2. Contents
 =============
 
-  PassPRNT_Android_SDK_Ver2.4.0
+  PassPRNT_Android_SDK_Ver2.5.0
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -52,10 +52,10 @@
 =================
 
   [OS]
-    Android OS 7.0 - 13
+    Android OS 9.0 - 13
 
   [Software]
-    PassPRNT Ver 2.7.0
+    PassPRNT Ver 2.8.0
 
   [Printer Model]
     Please refer to Users Manual.
@@ -69,6 +69,11 @@
 ====================
  5. Release History
 ====================
+
+ Ver 2.5.0
+  2023/09/07  : Added `2w6` and `2w7` to `size` query.
+                Updated target OS and target software.
+                Change `launchMode` to `singleTask`.
 
  Ver 2.4.0
   2023/04/10  : Added `gap` query.

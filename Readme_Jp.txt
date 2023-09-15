@@ -1,5 +1,5 @@
 ************************************************************
-      Star PassPRNT Android SDK Ver 2.4.0
+      Star PassPRNT Android SDK Ver 2.5.0
          Readme_Jp.txt                  スター精密（株）
 ************************************************************
 
@@ -36,7 +36,7 @@
  2. 内容
 ==========
 
-  PassPRNT_Android_SDK_Ver2.4.0
+  PassPRNT_Android_SDK_Ver2.5.0
   |
   | Readme_En.txt                       // リリースノート(英語)
   | Readme_Jp.txt                       // リリースノート(日本語)
@@ -51,10 +51,10 @@
 =============
 
   ■ 対象OS
-   Android OS 7.0 - 13
+   Android OS 9.0 - 13
 
   ■ 対象ソフトウェア
-   PassPRNT Ver 2.7.0
+   PassPRNT Ver 2.8.0
 
   ■ 対象プリンタモデル
    Users Manualをご参照ください。
@@ -68,6 +68,11 @@
 ======================================
  5. Star PassPRNT Android SDK 更新履歴
 ======================================
+
+ Ver 2.5.0
+  2023/09/07  : `size`クエリに`2w6`と`2w7`を追加
+                対象OS、対象ソフトウェアを更新
+                `launchMode`を`singleTask`に変更
 
  Ver 2.4.0
   2023/04/10  : `gap`クエリを追加
