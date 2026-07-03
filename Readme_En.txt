@@ -1,5 +1,5 @@
 ************************************************************
-      Star PassPRNT Android SDK Ver 2.6.0
+      Star PassPRNT Android SDK Ver 2.6.1
          Readme_En.txt             Star Micronics Co., Ltd.
 ************************************************************
 
@@ -37,7 +37,7 @@
  2. Contents
 =============
 
-  PassPRNT_Android_SDK_Ver2.6.0
+  PassPRNT_Android_SDK_Ver2.6.1
   |
   | Readme_En.txt                       // Release Note(English)
   | Readme_Jp.txt                       // Release Note(Japanese)
@@ -52,7 +52,7 @@
 =================
 
   [OS]
-    Android OS 10 - 15
+    Android OS 10 - 17
 
   [Software]
     PassPRNT Ver 2.11.0
@@ -64,11 +64,14 @@
  4. Copyright
 ==============
 
-  Copyright 2016 - 2025 Star Micronics Co., Ltd. All rights reserved.
+  Copyright 2016 - 2026 Star Micronics Co., Ltd. All rights reserved.
 
 ====================
  5. Release History
 ====================
+
+ Ver 2.6.1
+  2026/06/30  : Updated target OS and target software.
 
  Ver 2.6.0
   2025/05/19  : Changed `size` query to `384`, `406`, `576`, `832`.

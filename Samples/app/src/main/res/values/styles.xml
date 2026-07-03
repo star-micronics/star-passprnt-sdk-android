@@ -1,13 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowOptOutEdgeToEdgeEnforcement" tools:targetApi="35">true</item>
-        <!--  Note: 一時的な回避策として"windowOptOutEdgeToEdgeEnforcement"が用意されているため使用する。将来的には、Edge-to-Edge対応の必要あり。  -->
+        <item name="android:statusBarColor">?android:attr/colorBackground</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
 </resources>
